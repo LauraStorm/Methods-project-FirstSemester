@@ -63,13 +63,14 @@ public class MethodsProject {
     public static int printNumbers (int inputMaximumNumber) {
         int printNumber = inputMaximumNumber;
         String firkantParantes = "";
-        for (int i = 0; i < printNumber; i++) {
-            firkantParantes = "["+ i +"]" + firkantParantes;
-
+        for (int i = 1; i <= printNumber; i++) {
+            firkantParantes = "[" + i + "]" + firkantParantes ;
 
         }
-    }
+        System.out.println(firkantParantes);
+        return printNumber;
 
+    }
 
 
     public static void main(String[] args) {
@@ -127,7 +128,14 @@ public class MethodsProject {
 
         //TASK 5:
 
+
         //TASK 6:
+        System.out.println("Task number 6: \n");
+        System.out.println("Please type a random number:");
+        int userPrintNmuberInput = scanner.nextInt();
+
+        System.out.println(printNumbers(userPrintNmuberInput));
+        //DEN PRINTER BAGLÆNS PT
 
 
     }
