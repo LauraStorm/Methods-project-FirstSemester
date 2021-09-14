@@ -111,7 +111,7 @@ public class MethodsProject {
 
         //Using the method
         double smallestNumber = findSmallestNumber(inputNumber1,inputNumber2,inputNumber3);
-        String smallestNumberResult = smallestNumber + " is the smallest value you typed 🤗";
+        String smallestNumberResult = smallestNumber + " is the smallest value 🤗";
         System.out.println(smallestNumberResult);
 
 
@@ -153,7 +153,7 @@ public class MethodsProject {
         double sideCInput = scanner.nextDouble();
 
         //Using the method: Calculate the area
-        String areaResult = "The area of the   ⃤  is " +  findAreaOfATriangle(sideAInput, sideBInput, sideCInput) + 👍🏼;
+        String areaResult = "The area of the   ⃤  is " +  findAreaOfATriangle(sideAInput, sideBInput, sideCInput) + "👍🏼";
         System.out.println(areaResult);
 
 
@@ -183,9 +183,6 @@ public class MethodsProject {
 
         //Using the method:
         System.out.println(printNumbers(userPrintInput));
-
-
-
 
 
     }
