@@ -60,7 +60,7 @@ public class MethodsProject {
 
     //TASK 5: Write a Java method to check whether an entered string is a valid password.
 
-    public static boolean validPassword (String inputPassword){
+    public static boolean isPasswordValid (String inputPassword){
         String password = inputPassword;
         if ( password.length() < 8){
             //System.out.println("Your password is not Valid, try again");
@@ -98,7 +98,7 @@ public class MethodsProject {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        /*
+
         //TASK 1:
         System.out.println("Task number 1: \n");
         //Get 3 inputs from user:
@@ -113,7 +113,6 @@ public class MethodsProject {
         double smallestNumber = findSmallestNumber(inputNumber1,inputNumber2,inputNumber3);
         String smallestNumberResult = smallestNumber + " is the smallest value you typed 🤗";
         System.out.println(smallestNumberResult);
-
 
 
         //TASK 2:
@@ -160,23 +159,29 @@ public class MethodsProject {
 
         //TASK 5:
         System.out.println("Task number 5: \n");
+
         System.out.println("Lets check if your password is valid 😊  \nHere are the requirements:");
         System.out.println("1. A password must have at least eight characters");
         System.out.println("2. A password must consists of only letters and digits");
         System.out.println("3. It cannot contain the string \"secret\"");
         System.out.println("4. The first character must not be a dash (-)");
 
+        //Input from user
         System.out.println("\nWrite your password:");
         String userPasswordInput = scanner.next();
 
-        System.out.println(validPassword(userPasswordInput));
-        */
+        //Using the method
+        System.out.println(isPasswordValid(userPasswordInput));
+
 
         //TASK 6:
         System.out.println("Task number 6: \n");
+
+        //Input from user:
         System.out.println("Please type a random number:");
         int userPrintInput = scanner.nextInt();
 
+        //Using the method:
         System.out.println(printNumbers(userPrintInput));
 
 
