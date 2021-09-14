@@ -1,9 +1,8 @@
-import javax.sound.midi.Soundbank;
-import java.sql.SQLOutput;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 public class MethodsProject {
-    //METHODS:
+    //***METHODS***//
 
     //TASK 1: Write a Java method to find the smallest number among three numbers.
     //The number should come from a user inputting 3 numbers
@@ -13,23 +12,31 @@ public class MethodsProject {
         return smallestNumber;
     }
 
-    //TASK 2:Write a method that as a parameter gets a number.
-    // It should then print to the console if the number is negative, positive or zero.
+    //TASK 2: Write a method that as a parameter gets a number.
+    //It should then print to the console if the number is negative, positive or zero.
 
     public static int findMathValuePositiveNegativeOrZero (int number){
         int inputNumber = number;
         if (number > 0) {
-            System.out.println(number + " is a positive number");
+            System.out.println(number + " is a positive number 👍🏼");
         } else if (number < 0){
-            System.out.println(number + " is a negative number");
+            System.out.println(number + " is a negative number 👍🏼");
         } else {
-            System.out.println(number + " is neither positive or negative number. It is zero");
+            System.out.println(number + " is neither positive or negative number. - It is zero 😉");
         }
         return inputNumber; 
     }
 
     //TASK 3: Write a method to find the middle character of a string
-    public static String findMiddleCharOfAString (String inputString){
+    public static char findMiddleCharOfAString (String inputString){
+        int wordLength = inputString.length() - 1;
+        int middleCharIndex = wordLength / 2;
+        char middleCharResult = inputString.charAt(middleCharIndex);
+        return middleCharResult;
+    }
+    //This is another code to find middle char. This one will take 2 char in the middle of a string if there is not 1 in the middle (lige tal har ikke ét middle char)
+    /*
+    public static String findMiddleCharFromAString (String inputString){
         if (inputString.length() <= 2) {
             return inputString;
         }
@@ -39,9 +46,12 @@ public class MethodsProject {
 
     }
 
+     */
+
+
     //TASK 4: Write a java method to calculate the area of a triangle.
     // It should take 3 sides as parameter
-    public static double findAreaOfATriagle (double sideA, double sideB, double sideC){
+    public static double findAreaOfATriangle (double sideA, double sideB, double sideC){
         double sumOfSide = (sideA + sideB + sideC) / 2;
         double areaOfATriangle = Math.sqrt(sumOfSide * (sumOfSide - sideA) * (sumOfSide - sideB) *  (sumOfSide-sideC));
         return areaOfATriangle;
@@ -49,14 +59,26 @@ public class MethodsProject {
     }
 
     //TASK 5: Write a Java method to check whether an entered string is a valid password.
-    /*
+
     public static boolean validPassword (String inputPassword){
         String password = inputPassword;
-        if ( password.length() < 8) return false;
+        if ( password.length() < 8){
+            //System.out.println("Your password is not Valid, try again");
+            return false;
+        }
+        String regex = "[^a-zA-Z0-9]";
+        if (Pattern.compile(regex).matcher(password).find()){
+            //System.out.println("Your password is not Valid, try again");
+            return false;
+        }
+        if (password.contains("secret")){
+            //System.out.println("Your password is not Valid, try again");
+            return false;
+        }
+        //System.out.println("YAAAY - Your password is Valid 🔐 🥳");
+        return true;
 
     }
-
-     */
 
 
     //TASK 6:
@@ -64,20 +86,20 @@ public class MethodsProject {
         int printNumber = inputMaximumNumber;
         String firkantParantes = "";
         for (int i = 1; i <= printNumber; i++) {
-            firkantParantes = "[" + i + "]" + firkantParantes ;
+            firkantParantes = firkantParantes + "[" + i + "]";
 
         }
         System.out.println(firkantParantes);
         return printNumber;
-
     }
 
 
-    public static void main(String[] args) {
-        //USING METHODS:
+    //*** USING METHODS in practice ***//
 
-        //TASK 1:
+    public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        /*
+        //TASK 1:
         System.out.println("Task number 1: \n");
         //Get 3 inputs from user:
         System.out.println("Hey 👋🏽 - Let me help you find the smallest value among three numbers 🙏🏼 \nPlease type your first number:");
@@ -87,55 +109,78 @@ public class MethodsProject {
         System.out.println("Please type your third number:");
         double inputNumber3 = scanner.nextDouble();
 
-
         //Using the method
         double smallestNumber = findSmallestNumber(inputNumber1,inputNumber2,inputNumber3);
-        String smallestNumberResult = "The smallest value you typed is " + smallestNumber;
+        String smallestNumberResult = smallestNumber + " is the smallest value you typed 🤗";
         System.out.println(smallestNumberResult);
+
 
 
         //TASK 2:
         System.out.println("Task number 2: \n");
-        System.out.println("Please type a random number");
+
+        //Input from User
+        System.out.println("Please type a random number:");
         int inputNumber = scanner.nextInt();
-        System.out.println(findMathValuePositiveNegativeOrZero(inputNumber));
+
+        //Using the method
+        int resultOfInputNumber = findMathValuePositiveNegativeOrZero(inputNumber);
+        System.out.println(resultOfInputNumber);
 
 
         //TASK 3:
         System.out.println("Task number 3: \n");
+
+        //Input from User
         System.out.println("Please write a word:");
         String inputWord = scanner.next();
 
-        String inputMiddleCharResult = "The middle character(s) in the word you wrote is " + "'" + findMiddleCharOfAString(inputWord)+"'";
+        //Using the method
+        String inputMiddleCharResult = "'" + findMiddleCharOfAString(inputWord)+"'" + " is the middle character in the word 😇"  ;
         System.out.println(inputMiddleCharResult);
 
 
         //TASK 4:
         System.out.println("Task number 4: \n");
 
-        //Input from user: 3 numbers:
-        System.out.println("Lets calculate the area of a triangle");
-        System.out.println("Please type the length of the first side of your triangle");
+        //Input from user:
+        System.out.println("Lets calculate the area of a triangle  ⃤ ");
+
+        System.out.println("Please type the length of the first side of your triangle:");
         double sideAInput = scanner.nextDouble();
-        System.out.println("Please type the length of the second side of your triangle");
+        System.out.println("Please type the length of the second side of your triangle:");
         double sideBInput = scanner.nextDouble();
-        System.out.println("Please type the length of the third side of your triangle");
+        System.out.println("Please type the length of the third side of your triangle:");
         double sideCInput = scanner.nextDouble();
 
-        //Calculate the area
-        String areaResult = "The area of the triangle is " +  findAreaOfATriagle(sideAInput, sideBInput, sideCInput);
+        //Using the method: Calculate the area
+        String areaResult = "The area of the   ⃤  is " +  findAreaOfATriangle(sideAInput, sideBInput, sideCInput) + 👍🏼;
         System.out.println(areaResult);
 
-        //TASK 5:
 
+        //TASK 5:
+        System.out.println("Task number 5: \n");
+        System.out.println("Lets check if your password is valid 😊  \nHere are the requirements:");
+        System.out.println("1. A password must have at least eight characters");
+        System.out.println("2. A password must consists of only letters and digits");
+        System.out.println("3. It cannot contain the string \"secret\"");
+        System.out.println("4. The first character must not be a dash (-)");
+
+        System.out.println("\nWrite your password:");
+        String userPasswordInput = scanner.next();
+
+        System.out.println(validPassword(userPasswordInput));
+        */
 
         //TASK 6:
         System.out.println("Task number 6: \n");
         System.out.println("Please type a random number:");
-        int userPrintNmuberInput = scanner.nextInt();
+        int userPrintInput = scanner.nextInt();
 
-        System.out.println(printNumbers(userPrintNmuberInput));
-        //DEN PRINTER BAGLÆNS PT
+        System.out.println(printNumbers(userPrintInput));
+
+
+
 
 
     }
