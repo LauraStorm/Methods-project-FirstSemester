@@ -70,19 +70,19 @@ public class MethodsProject {
     public static boolean isPasswordValid (String inputPassword){
         String password = inputPassword;
         if ( password.length() < 8){
-            //System.out.println("Your password is not Valid, try again");
+            System.out.println("Your password is not Valid 🙁");
             return false;
         }
         String regex = "[^a-zA-Z0-9]";
         if (Pattern.compile(regex).matcher(password).find()){
-            //System.out.println("Your password is not Valid, try again");
+            System.out.println("Your password is not Valid 🙁");
             return false;
         }
         if (password.contains("secret")){
-            //System.out.println("Your password is not Valid, try again");
+            System.out.println("Your password is not Valid 🙁");
             return false;
         }
-        //System.out.println("YAAAY - Your password is Valid 🔐 🥳");
+        System.out.println("YAAAY - Your password is Valid 🔐 🥳");
         return true;
     }
 
@@ -191,7 +191,6 @@ public class MethodsProject {
 
         //Using the method
         System.out.println(printNumbers(userPrintInput));
-
 
     }
 
